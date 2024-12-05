@@ -10,8 +10,8 @@ Haverá uma tabela do utilizador, dos pokemons favoritos de cada utilizador e a 
 
 
 ## Autores
-André Delares
-Filipe Heliodoro
-Yuri Neves
+André Delares nº230000981,
+Filipe Heliodoro nº230001102,
+Yuri Nevesnº230000986,
 
 ## Descrição mais detalhada
