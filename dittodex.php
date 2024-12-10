@@ -1,5 +1,13 @@
 <?php
 
+session_start(); 
+
+if (isset($_POST['pokemon-name']) && !empty($_POST['pokemon-name'])) {
+    $_SESSION['searched_pokemon'] = strtolower(trim($_POST['pokemon-name']));
+    header("Location: ../pesquisados/pesquisa_pokemon.php");
+    exit;
+}
+
 function fetchPokemonByName($name) {
     $url = "https://pokeapi.co/api/v2/pokemon/" . strtolower(trim($name));
 
@@ -101,9 +109,7 @@ if (!$searchedPokemon) {
 </head>
 <body>
     <div class="container">
-        <h1>DittoDex</h1>
-
-        
+    <h1>DittoDex</h1>
         <form method="POST" class="form-container">
             <input type="text" name="pokemon-name" placeholder="Digite o nome do Pokémon" required>
             <button type="submit">Procurar</button>
@@ -162,7 +168,6 @@ if (!$searchedPokemon) {
                 </table>
             </div>
 
-          
             <div class="pagination">
                 <div class="page-info">Página <?= $currentPage ?> de <?= $maxPages ?></div>
                 <div class="pagination-buttons">
