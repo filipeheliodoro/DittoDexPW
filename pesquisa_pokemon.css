@@ -19,6 +19,14 @@ img {
     max-width: 800px;
     margin: 0 auto;
 }
+li {
+    list-style: none; 
+}
+
+ul {
+    list-style: none; 
+}
+
 .error { color: red; font-size: 18px; }
 button {
     padding: 10px 20px;

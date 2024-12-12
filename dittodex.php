@@ -3,15 +3,18 @@
 session_start(); 
 
 if (isset($_POST['pokemon-name']) && !empty($_POST['pokemon-name'])) {
-    $_SESSION['searched_pokemon'] = strtolower(trim($_POST['pokemon-name']));
+    $pokemonDetails = fetchPokemonByName($_POST['pokemon-name']);
+    if ($pokemonDetails) {
+        $_SESSION['searched_pokemon'] = $pokemonDetails;
+    }
     header("Location: ../pesquisados/pesquisa_pokemon.php");
     exit;
 }
 
+
 function fetchPokemonByName($name) {
     $url = "https://pokeapi.co/api/v2/pokemon/" . strtolower(trim($name));
 
-    
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -24,14 +27,27 @@ function fetchPokemonByName($name) {
 
     $data = json_decode($response, true);
 
-   
     return [
         'id' => $data['id'],
         'name' => $data['name'],
         'image' => $data['sprites']['front_default'],
-        'types' => array_column($data['types'], 'type', 'name'),
+        'types' => array_map(function($type) {
+            return $type['type']['name'];
+        }, $data['types']),
+        'abilities' => array_map(function($ability) {
+            return $ability['ability']['name'];
+        }, $data['abilities']),
+        'stats' => $data['stats'],
+        'base_experience' => $data['base_experience'],
+        'weight' => $data['weight'],
+        'height' => $data['height'],
+        'moves' => array_map(function($move) {
+            return $move['move']['name'];
+        }, $data['moves']),
     ];
 }
+
+
 
 
 function fetchPokemonsWithDetails($page = 1, $itemsPerPage = 15) {
@@ -169,11 +185,18 @@ if (!$searchedPokemon) {
             </div>
 
             <div class="pagination">
-                <div class="page-info">Página <?= $currentPage ?> de <?= $maxPages ?></div>
-                <div class="pagination-buttons">
-                    <a href="?page=<?= max(1, $currentPage - 1) ?>" class="pagination-btn">Anterior</a>
-                    <a href="?page=<?= min($maxPages, $currentPage + 1) ?>" class="pagination-btn">Próximo</a>
-                </div>
+            <div class="page-info">Página <?= $currentPage ?> de <?= $maxPages ?></div>
+            <div class="pagination-buttons">
+                <a href="?page=<?= max(1, $currentPage - 1) ?>" class="pagination-btn">Anterior</a>
+                <a href="?page=<?= min($maxPages, $currentPage + 1) ?>" class="pagination-btn">Próximo</a>
+            </div>
+                <form method="GET" class="page-jump-form">
+                <label for="page-number">Ir para a página:</label>
+                <input type="number" id="page-number" name="page" min="1" max="<?= $maxPages ?>" value="<?= $currentPage ?>" required>
+            <button type="submit" class="pagination-btn">Ir</button>
+                </form>
+            </div>
+
             </div>
         <?php endif; ?>
     </div>
