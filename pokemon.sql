@@ -24,4 +24,13 @@ CREATE TABLE favorito (
 
 SELECT * FROM pokemon.users;
 
+CREATE TABLE Equipa (
+  id_pokemon VARCHAR(255),
+  nome_pokemon VARCHAR(255),
+  nome_utilizadores varchar(255) FOREIGN KEY,
+);
+
+select * from pokemon.Equipa;
+
+
 
