@@ -2,6 +2,19 @@
 
 session_start(); 
 
+if (!isset($_SESSION['user_id'])) {
+
+    header("Location: ../login/login.php");
+    exit;
+}
+
+
+$userId = $_SESSION['user_id'];
+$userName = $_SESSION['user_name'];
+
+
+echo "Bem-vindo, " . htmlspecialchars($userName) . "!";
+
 if (isset($_POST['pokemon-name']) && !empty($_POST['pokemon-name'])) {
     $pokemonDetails = fetchPokemonByName($_POST['pokemon-name']);
     if ($pokemonDetails) {
@@ -10,7 +23,6 @@ if (isset($_POST['pokemon-name']) && !empty($_POST['pokemon-name'])) {
     header("Location: ../pesquisados/pesquisa_pokemon.php");
     exit;
 }
-
 
 function fetchPokemonByName($name) {
     $url = "https://pokeapi.co/api/v2/pokemon/" . strtolower(trim($name));
@@ -30,7 +42,8 @@ function fetchPokemonByName($name) {
     return [
         'id' => $data['id'],
         'name' => $data['name'],
-        'image' => $data['sprites']['front_default'],
+        'image' => $data['sprites']['front_default'], 
+        'shiny_image' => $data['sprites']['front_shiny'],
         'types' => array_map(function($type) {
             return $type['type']['name'];
         }, $data['types']),
@@ -96,6 +109,7 @@ function fetchPokemonDetails($url) {
         'id' => $data['id'],
         'name' => $data['name'],
         'image' => $data['sprites']['front_default'],
+        'shiny_image' => $data['sprites']['front_shiny'],
         'types' => array_column($data['types'], 'type', 'name'),
     ];
 }
@@ -160,7 +174,16 @@ if (!$searchedPokemon) {
                                 <tr>
                                     <td><?= $pokemon['id'] ?></td>
                                     <td><?= ucfirst($pokemon['name']) ?></td>
-                                    <td><img src="<?= $pokemon['image'] ?>" alt="<?= $pokemon['name'] ?>"></td>
+                                    <td class="pokemon-cell">
+                                        <div class="pokemon-img-container">
+                                            <img src="<?= $pokemon['image'] ?>" 
+                                                alt="<?= $pokemon['name'] ?>" 
+                                                class="pokemon-normal">
+                                            <img src="<?= $pokemon['shiny_image'] ?>" 
+                                                alt="<?= $pokemon['name'] ?>" 
+                                                class="pokemon-shiny">
+                                        </div>
+                                    </td>
                                     <td>
                                         <?= implode(', ', array_map(function($type) {
                                             return ucfirst($type['name']);
