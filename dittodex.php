@@ -1,5 +1,7 @@
 <?php
 
+require 'db.php';
+
 session_start(); 
 
 if (!isset($_SESSION['user_id'])) {
@@ -190,7 +192,7 @@ if (!$searchedPokemon) {
                                         }, $pokemon['types'])) ?>
                                     </td>
                                     <td>
-                                        <form method="POST" action="add_favorite.php">
+                                        <form method="POST" action="favoritos.php">
                                             <input type="hidden" name="pokemon_id" value="<?= $pokemon['id'] ?>">
                                             <input type="hidden" name="pokemon_name" value="<?= $pokemon['name'] ?>">
                                             <button type="submit">Adicionar aos Favoritos</button>
