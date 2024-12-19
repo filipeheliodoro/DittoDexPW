@@ -148,3 +148,21 @@ th {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.logout-container {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.logout-btn {
+    background-color: #ff5c5c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #ff3030;
+}

@@ -219,6 +219,11 @@ if (!$searchedPokemon) {
             <button type="submit" class="pagination-btn">Ir</button>
                 </form>
             </div>
+            <div class="logout-container">
+    <form method="POST" action="logout.php">
+        <button type="submit" class="logout-btn">Logout</button>
+    </form>
+</div>
 
             </div>
         <?php endif; ?>
