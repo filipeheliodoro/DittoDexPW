@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+th {
+    background-color: #f4f4f4;
+}
+img {
+    width: 100px;
+    height: auto;
+}
+.team {
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    max-width: 400px;
+    text-align: left;
+}
