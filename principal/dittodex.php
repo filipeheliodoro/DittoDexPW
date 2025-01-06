@@ -10,7 +10,6 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-
 $userId = $_SESSION['user_id'];
 $userName = $_SESSION['user_name'];
 
@@ -58,9 +57,6 @@ function fetchPokemonByName($name) {
         }, $data['moves']),
     ];
 }
-
-
-
 
 function fetchPokemonsWithDetails($page = 1, $itemsPerPage = 15) {
     $offset = ($page - 1) * $itemsPerPage;

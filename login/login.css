@@ -36,7 +36,7 @@ input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #8a2be2;
     border-radius: 4px;
     font-size: 16px;
     box-sizing: border-box;
@@ -44,14 +44,14 @@ input[type="password"] {
 
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #0066cc;
+    border-color: #8a2be2;
     outline: none;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: #0066cc;
+    background-color: #8a2be2;
     color: white;
     font-size: 16px;
     border: none;
@@ -60,7 +60,7 @@ button {
 }
 
 button:hover {
-    background-color: #005bb5;
+    background-color: #8a2be2;
 }
 
 .error {
@@ -76,7 +76,7 @@ button:hover {
 }
 
 .register-link a {
-    color: #0066cc;
+    color: #8a2be2;
     text-decoration: none;
     font-weight: bold;
 }

@@ -143,15 +143,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
             <p>Nenhum Pokémon adicionado aos favoritos.</p>
         <?php endif; ?>
     </div>
-
+    
+    <div class="buttons-container">
     <form method="POST" action="../principal/dittodex.php">
         <button type="submit" class="voltar">Dittodex</button>
     </form>
     <form method="POST" action="../principal/equipa.php">
         <button type="submit" class="voltar">Equipa</button>
     </form>
-    <form method="GET" action="../principal/battle_interface.php">
-        <button type="submit" class="battle-btn">Iniciar Batalha</button>
-    </form>
+    </div>
 </body>
 </html>
