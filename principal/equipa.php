@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-require 'db.php'; 
+require '../assets/database/db.php'; 
 
 function getRandomPokemons($count = 50) {
     $pokemons = [];
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_pokemon'])) {
     $pokemonImage = $_POST['pokemon_image'];
 
     if (isPokemonTaken($pokemonId, $pdo)) {
-        echo "<script>alert('Este Pokémon já foi adicionado por outro utilizador!');</script>";
+        echo "Este Pokémon já foi adicionado por outro utilizador!";
     } else {
         $stmt = $pdo->prepare("INSERT INTO Equipa (id_pokemon, nome_pokemon, nome_utilizadores) VALUES (?, ?, ?)");
         $stmt->execute([$pokemonId, $pokemonName, $_SESSION['user_id']]);

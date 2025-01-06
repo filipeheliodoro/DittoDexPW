@@ -1,6 +1,6 @@
 <?php
 
-require 'db.php';
+require '../assets/database/db.php';
 
 $error = "";
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header("Location: ../user/user.php"); 
                     exit;
                 } else {
-                    $error = "Senha incorreta.";
+                    $error = "Credenciais Invalidas.";
                 }
             }
         } catch (PDOException $e) {

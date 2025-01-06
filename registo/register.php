@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require '../assets/database/db.php';
 
 $error = "";
 

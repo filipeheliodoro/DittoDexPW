@@ -1,6 +1,6 @@
 <?php
 
-require 'db.php';
+require '../assets/database/db.php';
 
 session_start(); 
 

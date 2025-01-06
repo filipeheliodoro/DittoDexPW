@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require '../assets/database/db.php';
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
     <title>Perfil do Usuário</title>
 </head>
 <body>
-    <form method="POST" action="logout.php">
+    <form class="logout-form" method="POST" action="logout.php">
         <button type="submit" class="logout-btn">Logout</button>
     </form>
     <h1>Editar Perfil</h1>

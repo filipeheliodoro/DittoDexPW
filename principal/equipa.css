@@ -145,9 +145,10 @@ img {
 }
 
 .team li {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
     margin: 10px;
-    text-align: center;
+    align-items: center;
 }
 
 .team li img {
@@ -163,6 +164,19 @@ img {
     font-weight: bold;
     color: #8a2be2;
 }
+
+button:disabled{
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #734e95;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    color: gray;
+} 
 
 button[type="submit"] {
     padding: 10px 20px;
