@@ -127,12 +127,20 @@ if (!$searchedPokemon) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dittodex.css">
+    <link rel="shortcut icon" href="../img/ditto.png" type="image/x-icon">
     <title>DittoDex</title>
 </head>
 <body>
-<form method="POST" action="../user/user.php">
-        <button type="submit" class="logout-btn">Voltar</button>
-    </form>
+    <nav class="navbar">
+        <form class="logout-form" method="POST" action="logout.php">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+        <div class="nav-container">
+            <a class="nav-item link active">Dittodex</a>
+            <a href="equipa.php" class="nav-item link">Equipa</a>
+            <a href="../user/user.php" class="nav-item link">Perfil</a>
+        </div>
+    </nav>
     <div class="container">
     <h1>DittoDex</h1>
         <form method="POST" class="form-container">
@@ -186,23 +194,27 @@ if (!$searchedPokemon) {
                                     </td>
                                     <td>
                                         <?php
-                                            $stmt = $pdo->prepare("SELECT COUNT(*) FROM favorito WHERE user_id = :user_id AND pokemon_id = :pokemon_id");
-                                            $stmt->execute([
-                                                ':user_id' => $userId,
-                                                ':pokemon_id' => $pokemon['id']
-                                            ]);
-                                            $isFavorite = $stmt->fetchColumn() > 0;
+                                        $stmt = $pdo->prepare("SELECT COUNT(*) FROM favorito WHERE user_id = :user_id AND pokemon_id = :pokemon_id");
+                                        $stmt->execute([
+                                            ':user_id' => $userId,
+                                            ':pokemon_id' => $pokemon['id']
+                                        ]);
+                                        $isFavorite = $stmt->fetchColumn() > 0;
                                         ?>
                                     <form method="POST" action="favoritos.php" style="display: <?= $isFavorite ? 'none' : 'inline-block' ?>;">
                                         <input type="hidden" name="action" value="add">
                                         <input type="hidden" name="pokemon_id" value="<?= $pokemon['id'] ?>">
                                         <input type="hidden" name="pokemon_name" value="<?= $pokemon['name'] ?>">
-                                        <button type="submit">Adicionar aos Favoritos</button>
+                                        <button type="submit" class="btn-favorite" title="Adicionar aos Favoritos">
+                                            <i class="bi bi-bookmark-star"></i>
+                                        </button>
                                     </form>
                                     <form method="POST" action="favoritos.php" style="display: <?= $isFavorite ? 'inline-block' : 'none' ?>;">
                                         <input type="hidden" name="action" value="remove">
                                         <input type="hidden" name="pokemon_id" value="<?= $pokemon['id'] ?>">
-                                        <button type="submit">Remover dos Favoritos</button>
+                                        <button type="submit" class="btn-favorite" title="Remover dos Favoritos">
+                                            <i class="bi bi-bookmark-star-fill"></i>
+                                        </button>
                                     </form>
                                 </td>
                                 </tr>

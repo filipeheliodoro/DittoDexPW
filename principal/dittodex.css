@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f7f9fc;
@@ -75,10 +77,6 @@ th {
     overflow: hidden;
 }
 
-#pokemon-table th, #pokemon-table td {
-    color: #8a2be2;
-}
-
 .pagination-buttons {
     margin: 20px 0;
 }
@@ -99,6 +97,41 @@ th {
     transform: translateY(-2px);
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+
+    width: 100%;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+.navbar .nav-container {
+    display: flex;    
+    gap: 24px;
+}
+
+.navbar a.link {
+    display: inline-flex;
+    color: #333;
+    padding: 6px 4px;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar a.link:hover {
+    color: #6a1bd4;
+}
+
+.navbar a.active {
+    color: #6a1bd4;
+    border-bottom: 2px solid #6a1bd4;
+}
+
 .logout-btn {
     background: linear-gradient(145deg, #8a2be2, #6a1bd4);
     color: white;
@@ -111,10 +144,6 @@ th {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     text-transform: uppercase;
-    position: absolute; 
-    top: 20px; 
-    left: 20px; 
-    z-index: 10; 
 }
 
 .logout-btn:hover {
@@ -141,34 +170,7 @@ button[type="submit"] {
     color: white;
 }
 
-button[type="submit"][value="add"] {
-    background-color: #8a2be2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-button[type="submit"][value="add"]:hover {
-    background-color: #6a1bd4;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-button[type="submit"][value="add"]:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-button[type="submit"][value="remove"] {
-    background-color: #c0392b;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-button[type="submit"][value="remove"]:hover {
-    background-color: #a93226;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-button[type="submit"][value="remove"]:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+button[type="submit"].btn-favorite {
+    font-size: 24px;
+    padding: 10px 15px;
 }

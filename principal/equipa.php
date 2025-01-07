@@ -13,7 +13,7 @@ function getRandomPokemons($count = 50) {
     $pokemonIds = array_rand(range(1, 999), $count); 
 
     foreach ($pokemonIds as $id) {
-        $apiUrl = "https://pokeapi.co/api/v2/pokemon/" . $id;
+        $apiUrl = "https://pokeapi.co/api/v2/pokemon/" . ($id + 1);
         $pokemonData = file_get_contents($apiUrl);
         
         if ($pokemonData !== false) {
@@ -76,12 +76,17 @@ $randomPokemons = getRandomPokemons();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="equipa.css">
-    <title>Equipa</title>
+    <link rel="shortcut icon" href="../img/ditto.png" type="image/x-icon">
+    <title>Dittodex</title>
 </head>
 <body>
-<form method="POST" action="../user/user.php">
-        <button type="submit" class="logout-btn">Voltar</button>
-    </form>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="dittodex.php" class="nav-item link">Dittodex</a>
+            <a class="nav-item link active">Equipa</a>
+            <a href="../user/user.php" class="nav-item link">Perfil</a>
+        </div>
+    </nav>
     <h1>Escolha sua Equipa Pokémon</h1>
 
     <?php if (count($_SESSION['user_team']) < 6): ?>

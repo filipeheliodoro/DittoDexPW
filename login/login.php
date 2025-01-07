@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['user_name'] = $user['name']; 
 
                   
-                    header("Location: ../user/user.php"); 
+                    header("Location: ../principal/dittodex.php"); 
                     exit;
                 } else {
                     $error = "Credenciais Invalidas.";
@@ -50,7 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <title>LoginDitto</title>
+    <link rel="shortcut icon" href="../img/ditto.png" type="image/x-icon">
+    <title>Dittodex</title>
 </head>
 <body>
     <div class="container">

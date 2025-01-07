@@ -8,6 +8,40 @@ body {
     position: relative;
 }
 
+.navbar {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+.navbar .nav-container {
+    display: flex;    
+    gap: 24px;
+}
+
+.navbar a.link {
+    display: inline-flex;
+    color: #333;
+    padding: 6px 4px;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar a.link:hover {
+    color: #6a1bd4;
+}
+
+.navbar a.active {
+    color: #6a1bd4;
+    border-bottom: 2px solid #6a1bd4;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;

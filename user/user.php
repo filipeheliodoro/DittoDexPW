@@ -98,12 +98,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="user.css">
-    <title>Perfil do Usuário</title>
+    <link rel="shortcut icon" href="../img/ditto.png" type="image/x-icon">
+    <title>Dittodex</title>
 </head>
 <body>
-    <form class="logout-form" method="POST" action="logout.php">
-        <button type="submit" class="logout-btn">Logout</button>
-    </form>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../principal/dittodex.php" class="nav-item link">Dittodex</a>
+            <a href="../principal/equipa.php" class="nav-item link">Equipa</a>
+            <a class="nav-item link active">Perfil</a>
+        </div>
+    </nav>
     <h1>Editar Perfil</h1>
 
     <form method="POST" action="user.php">
@@ -142,15 +147,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
         <?php else: ?>
             <p>Nenhum Pokémon adicionado aos favoritos.</p>
         <?php endif; ?>
-    </div>
-    
-    <div class="buttons-container">
-    <form method="POST" action="../principal/dittodex.php">
-        <button type="submit" class="voltar">Dittodex</button>
-    </form>
-    <form method="POST" action="../principal/equipa.php">
-        <button type="submit" class="voltar">Equipa</button>
-    </form>
     </div>
 </body>
 </html>

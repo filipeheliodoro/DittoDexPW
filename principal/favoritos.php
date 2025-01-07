@@ -1,5 +1,4 @@
 <?php
-
 require '../assets/database/db.php';
 
 session_start();
@@ -13,6 +12,7 @@ $userId = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? null;
+    $keepInPage = $_POST['keepInPage'] ?? false;
     $pokemonId = $_POST['pokemon_id'] ?? null;
     $pokemonName = $_POST['pokemon_name'] ?? null;
 
@@ -41,9 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ':pokemon_id' => $pokemonId
                 ]);
             }
-
-            header("Location: dittodex.php");
-            exit;
+            if($keepInPage) {
+                header("Location: " . $_SERVER['HTTP_REFERER']);
+                exit;
+            } else {
+                header("Location: ../principal/dittodex.php");
+                exit;
+            }
         } catch (PDOException $e) {
             echo "Erro ao gerenciar favoritos: " . $e->getMessage();
         }
