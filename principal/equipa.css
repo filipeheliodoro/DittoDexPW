@@ -6,7 +6,15 @@ body {
     padding: 0;
     text-align: center;
     position: relative;
+}   
+
+.notification {
+    color: #ff0019;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
 }
+
 
 .navbar {
     display: flex;

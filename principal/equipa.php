@@ -51,18 +51,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_pokemon'])) {
     $pokemonImage = $_POST['pokemon_image'];
 
     if (isPokemonTaken($pokemonId, $pdo)) {
-        echo "Este Pokémon já foi adicionado por outro utilizador!";
+        $_SESSION['message'] = "Este Pokémon já foi adicionado por outro utilizador!";
     } else {
         $stmt = $pdo->prepare("INSERT INTO Equipa (id_pokemon, nome_pokemon, nome_utilizadores) VALUES (?, ?, ?)");
         $stmt->execute([$pokemonId, $pokemonName, $_SESSION['user_id']]);
-
+    
         $_SESSION['user_team'][] = [
             'id' => $pokemonId,
             'name' => $pokemonName,
             'image' => $pokemonImage
         ];
     }
-
+    
     header("Location: equipa.php");
     exit;
 }
@@ -80,6 +80,13 @@ $randomPokemons = getRandomPokemons();
     <title>Dittodex</title>
 </head>
 <body>
+    <?php if (isset($_SESSION['message'])): ?>
+        <div class="notification">
+            <?= htmlspecialchars($_SESSION['message']); ?>
+            <?php unset($_SESSION['message']); ?>
+        </div>
+    <?php endif; ?>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="dittodex.php" class="nav-item link">Dittodex</a>
