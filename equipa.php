@@ -6,14 +6,14 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-require 'db.php'; 
+require '../assets/database/db.php'; 
 
 function getRandomPokemons($count = 50) {
     $pokemons = [];
     $pokemonIds = array_rand(range(1, 999), $count); 
 
     foreach ($pokemonIds as $id) {
-        $apiUrl = "https://pokeapi.co/api/v2/pokemon/" . $id;
+        $apiUrl = "https://pokeapi.co/api/v2/pokemon/" . ($id + 1);
         $pokemonData = file_get_contents($apiUrl);
         
         if ($pokemonData !== false) {
@@ -51,18 +51,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_pokemon'])) {
     $pokemonImage = $_POST['pokemon_image'];
 
     if (isPokemonTaken($pokemonId, $pdo)) {
-        echo "<script>alert('Este Pokémon já foi adicionado por outro utilizador!');</script>";
+        $_SESSION['message'] = "Este Pokémon já foi adicionado por outro utilizador!";
     } else {
         $stmt = $pdo->prepare("INSERT INTO Equipa (id_pokemon, nome_pokemon, nome_utilizadores) VALUES (?, ?, ?)");
         $stmt->execute([$pokemonId, $pokemonName, $_SESSION['user_id']]);
-
+    
         $_SESSION['user_team'][] = [
             'id' => $pokemonId,
             'name' => $pokemonName,
             'image' => $pokemonImage
         ];
     }
-
+    
     header("Location: equipa.php");
     exit;
 }
@@ -75,12 +75,25 @@ $randomPokemons = getRandomPokemons();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipa</title>
+    <link rel="stylesheet" href="equipa.css">
+    <link rel="shortcut icon" href="../img/ditto.png" type="image/x-icon">
+    <title>Dittodex</title>
 </head>
 <body>
-<form method="POST" action="../user/user.php">
-        <button type="submit" class="logout-btn">Voltar</button>
-    </form>
+    <?php if (isset($_SESSION['message'])): ?>
+        <div class="notification">
+            <?= htmlspecialchars($_SESSION['message']); ?>
+            <?php unset($_SESSION['message']); ?>
+        </div>
+    <?php endif; ?>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="dittodex.php" class="nav-item link">Dittodex</a>
+            <a class="nav-item link active">Equipa</a>
+            <a href="../user/user.php" class="nav-item link">Perfil</a>
+        </div>
+    </nav>
     <h1>Escolha sua Equipa Pokémon</h1>
 
     <?php if (count($_SESSION['user_team']) < 6): ?>
