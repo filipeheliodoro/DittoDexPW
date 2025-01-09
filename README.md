@@ -58,21 +58,25 @@ https://dittodex.rf.gd/
 
 ## Descrição mais detalhada
 ## **Login**
+![Login](https://github.com/user-attachments/assets/e5f559d8-1fc3-4d6d-8086-675907f27038)
 <p><br>Permite que um utilizador existente aceda ao website.</p>
 <br>Métodos de verificação conectam-se à base de dados para:
   <br>Confirmar se a conta existe.
   <br>Verificar se todos os campos estão preenchidos.
   <br>Validar o email e a senha.
   <br>Caso algum dado esteja incorreto, é exibida a mensagem: "Credenciais Inválidas".
-  
+
 ## **Registro**
+![Register](https://github.com/user-attachments/assets/2c353468-8bde-4375-980c-74d0f5cf4f68)
 <p><br>Permite que novos utilizadores criem uma conta para aceder ao website.</p>
 <br>Métodos de verificação garantem que:
   <br>Todos os campos estejam preenchidos.
   <br>O email seja válido.
   <br>O email não esteja em uso.
   
+
 ## **DittoDex**
+![Dittodex](https://github.com/user-attachments/assets/2cd879c5-1b5a-4159-9108-46043e39cb92)
 <p><br>Página principal do website.</p>
 <br>Características principais:
   <br>Apresenta uma tabela de Pokémon retornados pela API, com 15 Pokémon exibidos por página, totalizando 75 páginas.
@@ -82,7 +86,9 @@ https://dittodex.rf.gd/
   <br>Botão de logout, que encerra a sessão e redireciona para a página de login.
   <br>Campo de pesquisa que permite ao utilizador encontrar Pokémon rapidamente e exibir informações detalhadas.</p>
 
+
 ## **Pesquisa de Pokémon**
+![Pesquisa_Pokemon](https://github.com/user-attachments/assets/0ebbff99-27a8-4084-93d6-8d1cfd94a25d)
 <br>Página dedicada a exibir informações detalhadas sobre os Pokémon pesquisados, incluindo:
   <br>Ataques aprendidos.
   <br>Estatísticas.
@@ -93,7 +99,9 @@ https://dittodex.rf.gd/
   <br>Botão para remover o Pokémon dos favoritos.
  <br>Botão para voltar à página principal (DittoDex).</p>
 
+
 ## **Perfil do Utilizador**
+![Perfil](https://github.com/user-attachments/assets/d7e12b19-4be3-4d9f-ba8f-3a499dca15a2)
 <p><br>Página dedicada às informações do utilizador.</p>
 <br>Características principais:
   <br>Exibe todos os Pokémon adicionados aos favoritos do utilizador.
@@ -103,7 +111,9 @@ https://dittodex.rf.gd/
     <br>Senha.
     <br>Inclui uma barra de navegação para acessar outras páginas.</p>
 
+
 ## **Equipa**
+![Equipa](https://github.com/user-attachments/assets/cafda377-61e4-4850-adc2-a2203216a1e8)
 <p><br>Página dedicada à criação de uma equipa de até 6 Pokémon.</p>
 <br>Características principais:
   <br>Criação de uma equipa de até 6 Pokémon.
