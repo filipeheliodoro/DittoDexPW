@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4; 
+    color: #333; 
+}
+
+h1, h2 {
+    color: #8a2be2;
+    text-align: center;
+}
+
+form {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #8a2be2;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #8a2be2;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background: #8a2be2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #6e1eb8;
+}
+
+button:active {
+    background: #7f25d4;
+}
+
+.logout-btn {
+    background: linear-gradient(145deg, #7f35ef, #b820e7);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    z-index: 10; 
+}
+
+.logout-btn:hover {
+    background: linear-gradient(145deg, #7f35ef, #b820e7);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#favorites-list ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#favorites-list li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #8a2be2;
+    border-radius: 10px;
+    display: inline-block;
+    width: auto;
+    background: #fff;
+}
+
+#favorites-list img {
+    border-radius: 10px;
+}
+
+#favorites-list p {
+    text-align: center;
+    color: #d32f2f;
+    font-size: 1.2rem;
+}
+
+.voltar {
+    background: #8a2be2;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.voltar:hover {
+    background: #6e1eb8;
+}

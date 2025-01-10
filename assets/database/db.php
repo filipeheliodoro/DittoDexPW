@@ -1,9 +1,9 @@
 <?php
 
 
-$host = 'localhost';    
-$db   = 'pokemon';       
-$user = 'yuri';          
+$host = 'sql209.infinityfree.com';    
+$db   = 'if0_38052111_pokemon';       
+$user = 'if0_38052111';          
 $pass = 'YuriNeves';               
 $charset = 'utf8mb4';   
 
